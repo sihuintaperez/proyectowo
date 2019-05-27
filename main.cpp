@@ -25,7 +25,7 @@ int main()
     float deltaTime = 0.0f;
     Clock clock;
 
-    platform platform1(nullptr,Vector2f(1600.0f,10.0f),Vector2f(500.0f,100.0f) );
+    platform platform1(nullptr,Vector2f(1600.0f,10.0f),Vector2f(500.0f,-300.0f) );
 
     while (window.isOpen() )
     {
