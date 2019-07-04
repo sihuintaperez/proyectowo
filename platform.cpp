@@ -1,20 +1,29 @@
-#include "platform.h"
-using namespace sf;
-using namespace std;
-platform::platform(Texture* texture,Vector2f size,Vector2f position)
-{
-    body.setSize(size);
-    body.setOrigin(size / 2.0f);
-    body.setTexture(texture);
-    body.setPosition(position);
+#include "Platform.h"
 
+Platform::Platform(Texture* texture, Vector2f size, Vector2f position)
+{
+        body.setSize(size);
+        body.setTexture(texture);
+        body.setPosition(position);
 }
 
-platform::~platform()
+Platform::~Platform()
 {
     //dtor
 }
-void platform::Draw(RenderWindow& window)
+
+Platform* Platform::Crear(int tipo,Texture* texture, Vector2f size, Vector2f position)
+{
+    if(tipo = 1)
+    {
+        return new Rojo(texture, size,position);
+
+    }
+    else if(tipo = 2)
+        return new Verde(texture, size,position);
+}
+
+void Platform::Draw(RenderWindow& window)
 {
     window.draw(body);
 }

@@ -2,47 +2,33 @@
 #define CHARACTER_H
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
-#include "Collision.h"
+#include "Platform.h"
+
+
 class Character
 {
     public:
-        Character(Texture* texture, Vector2u imageCount, float switchTime, float speed,float jumpheight);
         Character();
-        ~Character();
-        void Update(float deltaTime);
-        void Draw(RenderWindow& window);
+        Character(Texture* texture, Vector2u imageCount, float switchTime, float speed, float jumpHeight);
+        virtual void Update(float deltaTime);
+        virtual void OnCollision(Platform x);
 
-        void onCollision(Vector2f direction);
+        void Draw(RenderWindow& window);
 
         Vector2f GetPosition() {return body.getPosition();}
 
-        Collision GetCollision(){return Collision(body); }
-
-
-    private:
-        RectangleShape body;
-        Animation animation;
-        unsigned int row;
-        float speed;
-        bool faceRight;
-
-        Vector2f velocity;
-        bool canjump;
-        float jumpheight;
-
-};
-
-class Player : virtual public Character
-{
     public:
-        Player(Texture* texture, Vector2u imageCount, float switchTime, float speed,float jumpheight);
-    private:
-        RectangleShape body;
         Animation animation;
+        float speed, arriba, abajo, izquierda, derecha;
+        RectangleShape body;
+        bool exist;
         unsigned int row;
-        float speed;
         bool faceRight;
-
+        bool isFiring;
+        bool isFiring1;
+        Vector2f velocity;
+        bool jump;
+        float jumpHeight;
 
 };
 

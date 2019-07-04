@@ -23,3 +23,4 @@ using namespace std;
  };
 
 #endif // ANIMATION_H
+
